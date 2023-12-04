@@ -4,12 +4,27 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:RedOpalV2"
-    Shell.FlyoutBehavior="Disabled"
+    Shell.FlyoutBehavior="Flyout"
     Title="RedOpalV2">
 
     <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
+
+    <ShellContent
+        Title="Staff Profile"
+        ContentTemplate="{DataTemplate local:View.StaffProfile}"
+        Route="StaffProfile" />
+
+    <ShellContent
+        Title="Insert Staff"
+        ContentTemplate="{DataTemplate local:View.InsertStaff}"
+        Route="InsertStaff" />
+
+    <ShellContent
+        Title="Update Staff"
+        ContentTemplate="{DataTemplate local:View.UpdateStaff}"
+        Route="UpdateStaff" />
 
 </Shell>
