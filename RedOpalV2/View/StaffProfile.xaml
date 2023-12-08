@@ -39,7 +39,7 @@
             </Grid.ColumnDefinitions>
             <Image Source="burnt_orange_texture_image.png" Aspect="AspectFill" Grid.ColumnSpan="4"/> 
             <StackLayout Padding="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Column="0">
-                <Button Text="Call Staff" BackgroundColor="LightGray" TextColor="Black"></Button>
+                <Button Text="Update" BackgroundColor="LightGray" TextColor="Black"></Button>
             </StackLayout>
             <StackLayout Padding="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Column="1">
                 <Button Text="Intranet" BackgroundColor="LightGray" TextColor="Black"></Button>
