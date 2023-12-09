@@ -1,12 +1,13 @@
-﻿namespace RedOpalV2
+﻿using RedOpalV2.ViewModel;
+namespace RedOpalV2
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
-
+    
         public MainPage()
         {
             InitializeComponent();
+            this.BindingContext = new MainPageViewModel();
         }
 
         private void OnButtonClicked(object sender, EventArgs e)

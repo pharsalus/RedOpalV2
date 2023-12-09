@@ -61,6 +61,7 @@
 	  <None Remove="Resources\Fonts\Trebuchet-MS-Italic.ttf" />
 	  <None Remove="Resources\Fonts\Trebuchet-MS.ttf" />
 	  <None Remove="Resources\Images\Burnt_Orange_Texture_Image.png" />
+	  <None Remove="Resources\Images\placeholder_grey.png" />
 	  <None Remove="Resources\Images\roi_logo.png" />
 	</ItemGroup>
 

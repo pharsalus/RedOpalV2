@@ -11,6 +11,8 @@
             <RowDefinition Height ="*"/>
             <RowDefinition Height ="70"/>
         </Grid.RowDefinitions>
+        <!--Grid Row 0-->
+   
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="100"/>
@@ -27,34 +29,71 @@
                 <Image Source="roi_logo.png"/>
             </StackLayout>
         </Grid>
+        <!--Grid Row 1-->
         <SearchBar Grid.Row="1"
                Placeholder="Search for Staff Member"
                VerticalOptions="Center"
                HorizontalOptions="FillAndExpand" />
-        <Grid Grid.Row="2" Padding="15" BackgroundColor="Gray">
-            <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand">
-                <Label Text="Paragraph Text" FontSize="18" TextColor="White" FontAttributes="Italic"/>
-            </StackLayout>
+        <!--Grid Row 2-->
+        <Grid Grid.Row="2" Padding="15">
+            <!-- Background Image -->
+            <Image Source="burnt_orange_texture_image.png" Aspect="AspectFill" Grid.ColumnSpan="2"/>
+
+            <CollectionView ItemsSource="{Binding People}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10" ColumnDefinitions="Auto,*,Auto">
+                            <!-- Image Placeholder -->
+                            <Image Source="placeholder_grey.png" WidthRequest="60" HeightRequest="60" Aspect="AspectFill" Margin="0,0,10,0"/>
+
+                            <!-- People Info -->
+                            <StackLayout Grid.Column="1" Orientation="Vertical" HorizontalOptions="StartAndExpand">
+                                <Label Text="{Binding Name, StringFormat='Name: {0}'}" FontAttributes="Bold" TextColor="White"/>
+                                <Label Text="{Binding Id, StringFormat='ID: {0}'}" TextColor="White"/>
+                                <Label Text="{Binding Phone, StringFormat='Phone: {0}'}" TextColor="White"/>
+                            </StackLayout>
+                            
+                            <!-- Profile Button -->
+                            <Button Grid.Column="2" Text="Full Staff Profile" 
+                            Command="{Binding ViewProfileCommand}" 
+                            CommandParameter="{Binding .}"
+                            BackgroundColor="LightGray" TextColor="Black"/>
+
+                            <!-- Separator line -->
+                            <BoxView Grid.Row="1" Grid.ColumnSpan="3" HeightRequest="1" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="End"/>
+
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </Grid>
-        <Grid Grid.Row="3" BackgroundColor="Coral">
+        <!--Grid Row 3-->
+        <Grid Grid.Row="3" BackgroundColor="White">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <Image Source="burnt_orange_texture_image.png" Aspect="AspectFill" Grid.ColumnSpan="4"/>
-            <StackLayout Padding="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Column="0">
-                <Button Text="Call Staff" BackgroundColor="LightGray" TextColor="Black"></Button>
+            <!--<Image Source="burnt_orange_texture_image.png" Aspect="AspectFill" Grid.ColumnSpan="4"/>-->
+            <!-- Call Staff Button -->
+            <StackLayout Padding="10" VerticalOptions="End" HorizontalOptions="CenterAndExpand" Grid.Column="0">
+                <Button Text="Call Staff" BackgroundColor="LightGray" TextColor="Black" MinimumWidthRequest="100" MinimumHeightRequest="50" Margin="0,0,0,10"/>
             </StackLayout>
-            <StackLayout Padding="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Column="1">
-                <Button Text="Intranet" BackgroundColor="LightGray" TextColor="Black"></Button>
+
+            <!-- Intranet Button -->
+            <StackLayout Padding="10" VerticalOptions="End" HorizontalOptions="CenterAndExpand" Grid.Column="1">
+                <Button Text="Intranet" BackgroundColor="LightGray" TextColor="Black" MinimumWidthRequest="100" MinimumHeightRequest="50" Margin="0,0,0,10"/>
             </StackLayout>
-            <StackLayout Padding="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Column="2">
-                <Button Text="HR" BackgroundColor="LightGray" TextColor="Black"></Button>
+
+            <!-- HR Button -->
+            <StackLayout Padding="10" VerticalOptions="End" HorizontalOptions="CenterAndExpand" Grid.Column="2">
+                <Button Text="HR" BackgroundColor="LightGray" TextColor="Black" MinimumWidthRequest="100" MinimumHeightRequest="50" Margin="0,0,0,10"/>
             </StackLayout>
-            <StackLayout Padding="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Column="3">
-                <Button Text="Logout" BackgroundColor="LightGray" TextColor="Black"></Button>
+
+            <!-- Logout Button -->
+            <StackLayout Padding="10" VerticalOptions="End" HorizontalOptions="CenterAndExpand" Grid.Column="3">
+                <Button Text="Logout" BackgroundColor="LightGray" TextColor="Black" MinimumWidthRequest="100" MinimumHeightRequest="50" Margin="0,0,0,10"/>
             </StackLayout>
         </Grid>
     </Grid>
