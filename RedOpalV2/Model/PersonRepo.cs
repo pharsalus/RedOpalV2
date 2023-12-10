@@ -16,19 +16,19 @@ namespace RedOpalV2.Model
             _connectionString = @"Data Source=EDISON2\SQLEXPRESS;Initial Catalog=RedOpalInnovations;Integrated Security=True;Trust Server Certificate=True";
         }
 
-        public List<Person> GetAllPeople()
+        public async Task<List<Person>> GetAllPeople()
         {
             List<Person> people = new List<Person>();
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                connection.Open();
+                await connection.OpenAsync();
                 string query = "SELECT * FROM People";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    using (SqlDataReader reader = await command.ExecuteReaderAsync())
                     {
-                        while (reader.Read())
+                        while (await reader.ReadAsync())
                         {
                             people.Add(new Person
                             {
@@ -49,6 +49,7 @@ namespace RedOpalV2.Model
 
             return people;
         }
+
 
         // AddPerson method, UpdatePerson, DeletePerson, GetPersonById methods...
         public void AddPerson(Person person)

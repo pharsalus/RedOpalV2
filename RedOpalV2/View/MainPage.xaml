@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              Shell.NavBarIsVisible="False"
-             x:Class="RedOpalV2.MainPage">
+             x:Class="RedOpalV2.MainPage"
+             x:Name="MainPageRoot">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -55,8 +56,8 @@
                             
                             <!-- Profile Button -->
                             <Button Grid.Column="2" Text="Full Staff Profile" 
-                            Command="{Binding ViewProfileCommand}" 
-                            CommandParameter="{Binding .}"
+                            Command="{Binding Path=BindingContext.ViewProfileCommand, Source={x:Reference Name=MainPageRoot}}"
+                            
                             BackgroundColor="LightGray" TextColor="Black"/>
 
                             <!-- Separator line -->
